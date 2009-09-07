@@ -1,0 +1,16 @@
+DefaultPackage
+grails-app.conf
+grails-app.services.pl.burningice.plugins.image
+grails-app.services.pl.burningice.plugins.image.engines
+grails-app.services.pl.burningice.plugins.image.engines.scale
+grails-app.services.pl.burningice.plugins.image.engines.watermark
+grails-app.services.pl.burningice.plugins.image.file
+scripts
+test.unit.pl.burningice.plugins.image
+unzipped
+unzipped.grails-app.services.pl.burningice.plugins.image
+unzipped.grails-app.services.pl.burningice.plugins.image.engines
+unzipped.grails-app.services.pl.burningice.plugins.image.engines.scale
+unzipped.grails-app.services.pl.burningice.plugins.image.engines.watermark
+unzipped.grails-app.services.pl.burningice.plugins.image.file
+unzipped.scripts
