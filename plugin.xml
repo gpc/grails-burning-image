@@ -1,12 +1,10 @@
-<plugin name='burning-image' version='0.1' grailsVersion='1.1.1 &gt; *'>
+<plugin name='burning-image' version='0.2' grailsVersion='1.1 &gt; *'>
   <author>Pawel Gdula</author>
   <authorEmail>pawel.gdula@burningice.pl</authorEmail>
-  <title>BurningImage</title>
+  <title>Burning Image</title>
   <description>Image manipulation plugin</description>
-  <documentation>http://grails.org/BurningImage+Plugin</documentation>
+  <documentation>http://code.google.com/p/burningimage/wiki/Documentation</documentation>
   <resources>
-    <resource>DataSource</resource>
-    <resource>UrlMappings</resource>
     <resource>pl.burningice.plugins.image.BurningImageService</resource>
     <resource>pl.burningice.plugins.image.engines.ActionBuilder</resource>
     <resource>pl.burningice.plugins.image.engines.scale.AccurateScaleEngine</resource>
