@@ -34,7 +34,7 @@ import com.sun.media.jai.codec.*;
  *
  * @author Pawel Gdula <pawel.gdula@burningice.pl>
  */
-private class AccurateScaleEngine extends ScaleEngine {
+private class AccurateScaleEngine extends ApproximateScaleEngine {
 
     /**
      * Sometimes scale of image is lowered by 1px and when
@@ -47,21 +47,13 @@ private class AccurateScaleEngine extends ScaleEngine {
 
     /**
      * @see ScaleEngine#scaleImage(image, width, height)
+     * @overwrite
      */
     protected def scaleImage(image, width, height) {
         def scaleX = (width + SIZE_CORRECTION) / image.width
         def scaleY = (height + SIZE_CORRECTION) / image.height
+        def scaledImage = resize(scaleX < scaleY ? scaleY : scaleX)(image)
 
-        def scale = (scaleX < scaleY ? scaleY : scaleX)
-
-        ParameterBlock scaleParams = new ParameterBlock();
-        scaleParams.addSource(image);
-        scaleParams.add((double)scale);
-        scaleParams.add((double)scale);
-        scaleParams.add(new InterpolationNearest());
-
-        def scaledImage = JAI.create('SubsampleAverage', scaleParams, null);
-        
         if (scaledImage.width ==  width
             && scaledImage.height == height ){
             return scaledImage

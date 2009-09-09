@@ -37,7 +37,7 @@ abstract class ImageFile {
     private static final def GIF_OUTPUT_FORMAT = 'jpg'
 
     /**
-     * Source image 
+     * Source image
      *
      * @var File / MultipartFile
      */
@@ -51,6 +51,7 @@ abstract class ImageFile {
     @Lazy
     def extensionEncoderMapping = [
         'jpg': 'JPEG',
+        'jpeg': 'JPEG',
         'gif': 'JPEG',
         'bmp': 'BMP',
         'png': 'PNG'
@@ -72,7 +73,7 @@ abstract class ImageFile {
 
     /**
      * Allows to check if specified file is local
-     * or is upladed by user 
+     * or is upladed by user
      *
      * @return boolean
      */

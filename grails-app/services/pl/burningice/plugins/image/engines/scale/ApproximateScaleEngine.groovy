@@ -41,14 +41,52 @@ private class ApproximateScaleEngine extends ScaleEngine {
     protected def scaleImage(image, width, height) {
         def scaleX = width / image.width
         def scaleY = height / image.height
-        def scale = (scaleX > scaleY ? scaleY : scaleX)
+        resize(scaleX > scaleY ? scaleY : scaleX)(image)
+    }
 
-        ParameterBlock params = new ParameterBlock();
-        params.addSource(image);
-        params.add((double)scale);    
-        params.add((double)scale);   
-        params.add(new InterpolationNearest());
+    /**
+     * We provide two types of image resize to eleminate situatuin
+     * wheb scale is > 1, for sutch action SubsampleAverage throw exception
+     * For this situation we resize image by "scale"
+     *
+     * @param Float scale
+     * @return Closure
+     */
+    protected def resize(scale){
+        scale > 1 ? resizeByScale.curry(scale) : resizeBySubsampleAverage.curry(scale)
+    }
 
-        JAI.create('SubsampleAverage', params, null);
+    /**
+     * Resize option for scale > 1
+     *
+     * @param flaot scale Scale parameter
+     * @param image Image to scale
+     * @return RenderedOp
+     */
+    protected def resizeByScale = {scale, image ->
+        def scaleParams = new ParameterBlock();
+        scaleParams.addSource(image);
+        scaleParams.add((float)scale);
+        scaleParams.add((float)scale);
+        scaleParams.add(0.0f);
+        scaleParams.add(0.0f);
+        scaleParams.add(new InterpolationNearest());
+        JAI.create('scale', scaleParams, null);
+    }
+
+    /**
+     * Resize option for scale <= 1
+     *
+     * @param flaot scale Scale parameter
+     * @param image Image to scale
+     * @return RenderedOp
+     */
+    protected def resizeBySubsampleAverage = {scale, image ->
+        def scaleParams = new ParameterBlock();
+        scaleParams.addSource(image);
+        scaleParams.add((double)scale);
+        scaleParams.add((double)scale);
+        scaleParams.add(new InterpolationNearest());
+        JAI.create('SubsampleAverage', scaleParams, null);
     }
 }
