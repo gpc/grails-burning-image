@@ -1,4 +1,4 @@
-<plugin name='burning-image' version='0.2' grailsVersion='1.1 &gt; *'>
+<plugin name='burning-image' version='0.3' grailsVersion='1.1 &gt; *'>
   <author>Pawel Gdula</author>
   <authorEmail>pawel.gdula@burningice.pl</authorEmail>
   <title>Burning Image</title>

@@ -31,6 +31,7 @@ import java.awt.image.renderable.ParameterBlock
 import javax.imageio.ImageIO
 import java.awt.AlphaComposite
 import pl.burningice.plugins.image.file.ImageFileFactory
+import java.awt.image.BufferedImage;
 
 /**
  * Abstract class for all scale engines
@@ -50,9 +51,9 @@ abstract class ScaleEngine {
      */
     def execute(loadedImage, width, height, outputFilePath) {
         def scaledImage = scaleImage(loadedImage.getAsJaiStream(), width, height)
-        def outputFile = new FileOutputStream(outputFilePath);
-        JAI.create('encode', scaledImage, outputFile, loadedImage.encoder, null);
-        outputFile.close()
+        BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outputFilePath));
+        ImageIO.write(scaledImage.getAsBufferedImage(), loadedImage.encoder, output);
+        output.close();
         ImageFileFactory.produce(new File(outputFilePath))
     }
 
