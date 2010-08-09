@@ -1,0 +1,108 @@
+--Output from testBaseSetupLocalFile--
+Remove ./resources/resultImages/image.jpg
+--Output from testBaseSetupMultipart--
+--Output from testScaleApproximateMultipartFile--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+--Output from testScaleApproximateLocalFileJpg--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+--Output from testScaleAccurateLocalFileJpgBig--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image2.jpg
+--Output from testScaleAccurateLocalFileJpg--
+Remove ./resources/resultImages/image2.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+--Output from testScaleAccurateMultipartFileJpg--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+--Output from testScaleApproximateLocalFileJpgWithName--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/jpg-50x50.jpg
+Remove ./resources/resultImages/jpg-50x2000.jpg
+Remove ./resources/resultImages/jpg-2000x50.jpg
+--Output from testScaleApproximateMultipartFileJpgWithName--
+Remove ./resources/resultImages/jpg-2000x2000.jpg
+Remove ./resources/resultImages/jpg-50x50.jpg
+Remove ./resources/resultImages/jpg-50x2000.jpg
+Remove ./resources/resultImages/jpg-2000x50.jpg
+--Output from testScaleApproximateLocalFileBmp--
+Remove ./resources/resultImages/jpg-2000x2000.jpg
+Remove ./resources/resultImages/image.bmp
+Remove ./resources/resultImages/image.bmp
+Remove ./resources/resultImages/image.bmp
+--Output from testScaleAccurateLocalFileBmp--
+Remove ./resources/resultImages/image.bmp
+Remove ./resources/resultImages/image.bmp
+Remove ./resources/resultImages/image.bmp
+Remove ./resources/resultImages/image.bmp
+--Output from testScaleApproximateLocalFileBmpWithName--
+Remove ./resources/resultImages/image.bmp
+Remove ./resources/resultImages/bmp-50x50.bmp
+Remove ./resources/resultImages/bmp-50x2000.bmp
+Remove ./resources/resultImages/bmp-2000x50.bmp
+--Output from testScaleApproximateLocalFilePng--
+Remove ./resources/resultImages/bmp-2000x2000.bmp
+Remove ./resources/resultImages/image.png
+Remove ./resources/resultImages/image.png
+Remove ./resources/resultImages/image.png
+--Output from testScaleAccurateLocalFilePng--
+Remove ./resources/resultImages/image.png
+Remove ./resources/resultImages/image.png
+Remove ./resources/resultImages/image.png
+Remove ./resources/resultImages/image.png
+--Output from testScaleApproximateLocalFilePngWithName--
+Remove ./resources/resultImages/image.png
+Remove ./resources/resultImages/png-50x50.png
+Remove ./resources/resultImages/png-50x2000.png
+Remove ./resources/resultImages/png-2000x50.png
+--Output from testScaleApproximateLocalFileGif--
+Remove ./resources/resultImages/png-2000x2000.png
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+--Output from testScaleAccurateLocalFileGif--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/image.jpg
+--Output from testScaleApproximateLocalFileGifWithName--
+Remove ./resources/resultImages/image.jpg
+Remove ./resources/resultImages/50x50.jpg
+Remove ./resources/resultImages/50x2000.jpg
+Remove ./resources/resultImages/2000x50.jpg
+--Output from testWatermarkError--
+Remove ./resources/resultImages/2000x2000.jpg
+--Output from testWatermarkLocalJpg--
+--Output from testWatermarkLocalGif--
+Remove ./resources/resultImages/image.jpg
+--Output from testWatermarkLocalPng--
+Remove ./resources/resultImages/image.jpg
+--Output from testWatermarkLocalBmp--
+Remove ./resources/resultImages/image.png
+--Output from testWatermarkLocalJpgLocation--
+Remove ./resources/resultImages/image.bmp
+--Output from testWatermarkRemoteJpgLocation--
+Remove ./resources/resultImages/left-top-watermark.jpg
+Remove ./resources/resultImages/right-bottom-watermark.jpg
+--Output from testChaining--
+Remove ./resources/resultImages/image.jpg
+--Output from testCropError--
+Remove ./resources/resultImages/watermark-scale.jpg
+Remove ./resources/resultImages/complex.jpg
+Remove ./resources/resultImages/scale-watermark.jpg
+--Output from testCropJpgLocalFile--
+--Output from testCropBmpLocalFile--
+Remove ./resources/resultImages/image.jpg
+--Output from testCropPngLocalFile--
+Remove ./resources/resultImages/image.bmp
+--Output from testCropGifLocalFile--
+Remove ./resources/resultImages/image.png
+

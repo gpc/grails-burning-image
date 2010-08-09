@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="pawel" id="0" name="TestTransformationTests" package="pl.burningice.plugins.image.ast" tests="1" time="0.971" timestamp="2010-01-27T22:06:00">
+      <properties />
+
+      <testcase classname="pl.burningice.plugins.image.ast.TestTransformationTests" name="testSomething" time="0.938" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
