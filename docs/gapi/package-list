@@ -1,7 +1,0 @@
-DefaultPackage
-grails-app.services.pl.burningice.plugins.image
-grails-app.services.pl.burningice.plugins.image.engines
-grails-app.services.pl.burningice.plugins.image.engines.scale
-grails-app.services.pl.burningice.plugins.image.engines.watermark
-grails-app.services.pl.burningice.plugins.image.file
-scripts
