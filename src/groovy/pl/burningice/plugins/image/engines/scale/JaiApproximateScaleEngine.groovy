@@ -32,7 +32,7 @@ import javax.media.jai.*;
  *
  * @author Pawel Gdula <pawel.gdula@burningice.pl>
  */
-private class JaiApproximateScaleEngine extends JaiScaleEngine {
+class JaiApproximateScaleEngine extends JaiScaleEngine {
 
     /**
      * @see JaiScaleEngine#scaleImage

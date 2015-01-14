@@ -1,12 +1,11 @@
-<plugin name='burning-image' version='0.5.0' grailsVersion='1.2 &gt; *'>
+<plugin name='burning-image' version='0.5.1' grailsVersion='1.2 &gt; *'>
   <author>Pawel Gdula</author>
   <authorEmail>pawel.gdula@burningice.pl</authorEmail>
   <title>Burning Image</title>
-  <description>Image manipulation plugin</description>
+  <description>Image manipulation plugin that allows you to easily attach images to any domain class via an annotation. You can also configure the plugin to scale images and perform other operation.</description>
   <documentation>http://code.google.com/p/burningimage/</documentation>
+  <type>BurningImageGrailsPlugin</type>
   <resources>
-    <resource>DataSource</resource>
-    <resource>UrlMappings</resource>
     <resource>pl.burningice.plugins.image.DbContainerImageController</resource>
     <resource>pl.burningice.plugins.image.ast.Image</resource>
     <resource>pl.burningice.plugins.image.ast.test.TestDbContainerDomainFirst</resource>
@@ -20,10 +19,15 @@
     <resource>pl.burningice.plugins.image.ast.ImageService</resource>
     <resource>pl.burningice.plugins.image.BurningImageTagLib</resource>
   </resources>
-  <dependencies>
-    <resolvers>
-      <resolver type='grailsPlugins' name='grailsPlugins' />
-    </resolvers>
-  </dependencies>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins />
+  <runtimePluginRequirements />
   <behavior />
 </plugin>

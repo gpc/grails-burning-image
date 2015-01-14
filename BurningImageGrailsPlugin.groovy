@@ -1,6 +1,6 @@
 class BurningImageGrailsPlugin {
     // the plugin version
-    def version = "0.5.0"
+    def version = "0.5.1"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.2 > *"
     // the other plugins this plugin depends on
@@ -16,7 +16,10 @@ class BurningImageGrailsPlugin {
     def author = "Pawel Gdula"
     def authorEmail = "pawel.gdula@burningice.pl"
     def title = "Burning Image"
-    def description = "Image manipulation plugin"
+    def description = """\
+Image manipulation plugin that allows you to easily attach images to \
+any domain class via an annotation. You can also configure the plugin \
+to scale images and perform other operation."""
 
     // URL to the plugin's documentation
     def documentation = "http://code.google.com/p/burningimage/"
@@ -27,20 +30,5 @@ class BurningImageGrailsPlugin {
         containerWorkerFactory(pl.burningice.plugins.image.container.ContainerWorkerFactory){
             resourcePathProvider = ref('resourcePathProvider')    
         }
-    }
-
-    def doWithApplicationContext = { applicationContext ->
-    }
-
-    def doWithWebDescriptor = { xml ->
-    }
-
-    def doWithDynamicMethods = { ctx ->
-    }
-
-    def onChange = { event ->
-    }
-
-    def onConfigChange = { event ->
     }
 }

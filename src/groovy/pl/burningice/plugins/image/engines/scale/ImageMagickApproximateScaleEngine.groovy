@@ -34,7 +34,7 @@ import pl.burningice.plugins.image.ConfigUtils
  *
  * @author Pawel Gdula <pawel.gdula@burningice.pl>
  */
-private class ImageMagickApproximateScaleEngine extends ImageMagickScaleEngine {
+class ImageMagickApproximateScaleEngine extends ImageMagickScaleEngine {
 
     protected byte[] scaleImage(byte[] image, Dimension currentSize, Dimension requestedSize) {
         if (requestedSize.width >= currentSize.width

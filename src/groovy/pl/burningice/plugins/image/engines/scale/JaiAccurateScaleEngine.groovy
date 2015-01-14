@@ -33,7 +33,7 @@ import javax.media.jai.*;
  *
  * @author Pawel Gdula <pawel.gdula@burningice.pl>
  */
-private class JaiAccurateScaleEngine extends JaiApproximateScaleEngine {
+class JaiAccurateScaleEngine extends JaiApproximateScaleEngine {
 
     /**
      * Sometimes scale of image is lowered by 1px and when

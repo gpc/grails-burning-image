@@ -37,7 +37,7 @@ import pl.burningice.plugins.image.ConfigUtils
  *
  * @author Pawel Gdula <pawel.gdula@burningice.pl>
  */
-private class ImageMagickAccurateScaleEngine extends ImageMagickApproximateScaleEngine {
+class ImageMagickAccurateScaleEngine extends ImageMagickApproximateScaleEngine {
 
     /**
      * Specify image size correction for scaling
