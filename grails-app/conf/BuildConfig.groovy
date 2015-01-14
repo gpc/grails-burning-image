@@ -27,19 +27,20 @@ grails.project.dependency.resolution = {
     repositories {
         grailsCentral()
         mavenLocal()
-        mavenCentral()
+        mavenRepo "https://repo.grails.org/grails/core"
+        jcenter()
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         // runtime 'mysql:mysql-connector-java:5.1.27'
         compile 'commons-lang:commons-lang:2.4'
-        compile 'com.sun.media:jai_codec:1.1.2_01'
-        compile 'javax.media:jai_core:1.1.3'
+        compile 'com.sun.media:jai-codec:1.1.3'
+        compile 'javax.media:jai-core:1.1.3'
         compile 'jmagick:jmagick:6.6.9'
     }
 
