@@ -21,7 +21,7 @@ THE SOFTWARE.
 */
 package pl.burningice.plugins.image
 
-import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+import grails.util.Holders as CH
 import pl.burningice.plugins.image.engines.RenderingEngine
 
 /**

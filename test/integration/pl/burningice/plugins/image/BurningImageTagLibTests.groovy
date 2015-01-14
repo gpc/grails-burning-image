@@ -1,7 +1,7 @@
 package pl.burningice.plugins.image
 
 import grails.test.GroovyPagesTestCase
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import grails.util.Holders
 import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
 import pl.burningice.plugins.image.ast.test.Underscored_Test_Domain
 import pl.burningice.plugins.image.ast.test.TestDomain
@@ -20,7 +20,7 @@ class BurningImageTagLibTests extends GroovyPagesTestCase {
 
     protected void setUp() {
         super.setUp()
-        ConfigurationHolder.config = new ConfigObject()
+        Holders.config = new ConfigObject()
     }
 
     void testResourceAbsolutePath() {
@@ -50,7 +50,7 @@ class BurningImageTagLibTests extends GroovyPagesTestCase {
             applyTemplate(template, [size:size, bean:bean])
         }
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: ['path':'/path/to/images/', 'alias':'/upload/'],
             prefix: 'prefixName',
             images: ['small':[scale:[width:100, height:100, type:null]]]
@@ -78,7 +78,7 @@ class BurningImageTagLibTests extends GroovyPagesTestCase {
             applyTemplate(template, [size:null, bean:bean] )
         }
 
-        ConfigurationHolder.config.bi.TestDbContainerDomainThird = [
+        Holders.config.bi.TestDbContainerDomainThird = [
             images: [
                 (size):[scale:[width:100, height:100, type:ScaleType.ACCURATE]]
             ]
@@ -127,7 +127,7 @@ class BurningImageTagLibTests extends GroovyPagesTestCase {
             applyTemplate(template, [size:size, bean:bean])
         }
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: '/relative/path/to/dir/',
             prefix: 'prefixName',
             images: ['small':[scale:[width:100, height:100, type:null]]]
@@ -163,7 +163,7 @@ class BurningImageTagLibTests extends GroovyPagesTestCase {
             applyTemplate(template, [size:size, bean:bean])
         }
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: '/',
             prefix: null,
             images: ['small':[scale:[width:100, height:100, type:null]]]
@@ -191,13 +191,13 @@ class BurningImageTagLibTests extends GroovyPagesTestCase {
     }
 
     void testWithHasMany() {
-        ConfigurationHolder.config.bi.TestDomainSecond = [
+        Holders.config.bi.TestDomainSecond = [
             outputDir: '/relative/path/to/dir/',
             prefix: 'prefixName',
             images: ['small':[scale:[width:100, height:100, type:null]]]
         ]
 
-        ConfigurationHolder.config.bi.Underscored = [
+        Holders.config.bi.Underscored = [
             outputDir: '/relative/path/to/underscored/dir',
             prefix: 'underscored',
             images: ['small':[scale:[width:100, height:100, type:null]]]

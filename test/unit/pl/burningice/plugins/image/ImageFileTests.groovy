@@ -1,6 +1,6 @@
 package pl.burningice.plugins.image
 
-import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+import grails.util.Holders as CH
 
 import grails.test.GrailsUnitTestCase
 import pl.burningice.plugins.image.test.FileUploadUtils

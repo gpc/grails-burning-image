@@ -6,7 +6,7 @@ import java.awt.Color
 import java.awt.Font
 import grails.test.GrailsUnitTestCase
 import pl.burningice.plugins.image.test.FileUploadUtils
-import org.codehaus.groovy.grails.commons.ConfigurationHolder as CH
+import grails.util.Holders as CH
 
 /**
  *

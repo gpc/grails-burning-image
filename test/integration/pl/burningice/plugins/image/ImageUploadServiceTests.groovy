@@ -1,6 +1,6 @@
 package pl.burningice.plugins.image
 
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import grails.util.Holders
 import pl.burningice.plugins.image.engines.scale.ScaleType
 import pl.burningice.plugins.image.ast.test.TestDomain
 import pl.burningice.plugins.image.ast.test.TestDbContainerDomainFirst
@@ -32,7 +32,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     protected void setUp() {
         super.setUp()
         cleanUpTestDir()
-        ConfigurationHolder.config = new ConfigObject()
+        Holders.config = new ConfigObject()
     }
 
     protected void tearDown() {
@@ -40,7 +40,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     }
 
     void testDeleteDbContainerAndRelatedImagesWithDeleteBeforeMethodExists() {
-        ConfigurationHolder.config.bi.TestDbContainerDomainThird = [
+        Holders.config.bi.TestDbContainerDomainThird = [
             images: [
                 'small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
                 'medium':[scale:[width:300, height:300, type:ScaleType.ACCURATE]],
@@ -73,7 +73,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     }
 
     void testDeleteDbContainerAndRelatedImages() {
-        ConfigurationHolder.config.bi.TestDbContainerDomainSecond = [
+        Holders.config.bi.TestDbContainerDomainSecond = [
             images: [
                 'small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
                 'medium':[scale:[width:300, height:300, type:ScaleType.ACCURATE]],
@@ -128,7 +128,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     void testDbImageDelete() {
         def testDomain, result
         // should be ok now
-        ConfigurationHolder.config.bi.TestDbContainerDomainSecond = [
+        Holders.config.bi.TestDbContainerDomainSecond = [
             images: [
                 'small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
                 'medium':[scale:[width:300, height:300, type:ScaleType.ACCURATE]],
@@ -155,7 +155,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
 
     void testScaleDbImageDefaultCustomFiled() {
         def testDomain, result
-        ConfigurationHolder.config.bi.TestDbContainerDomainSecond = null
+        Holders.config.bi.TestDbContainerDomainSecond = null
         // instance not saved and there is no image
         testDomain = new TestDbContainerDomainSecond()
         shouldFail(IllegalArgumentException){
@@ -174,7 +174,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
             imageUploadService.save(testDomain)
         }
         // should be ok now
-        ConfigurationHolder.config.bi.TestDbContainerDomainSecond = [
+        Holders.config.bi.TestDbContainerDomainSecond = [
             images: [
                 'small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
                 'medium':[scale:[width:300, height:300, type:ScaleType.ACCURATE]],
@@ -229,23 +229,23 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
 
         BufferedImage smallImage = ImageIO.read(new ByteArrayInputStream(testDomain.biImage.small.data))
         println smallImage
-        assertTrue smallImage.width == ConfigurationHolder.config.bi.TestDbContainerDomainSecond.images.small.scale.width
-        assertTrue smallImage.height == ConfigurationHolder.config.bi.TestDbContainerDomainSecond.images.small.scale.height
+        assertTrue smallImage.width == Holders.config.bi.TestDbContainerDomainSecond.images.small.scale.width
+        assertTrue smallImage.height == Holders.config.bi.TestDbContainerDomainSecond.images.small.scale.height
 
         BufferedImage mediumImage = ImageIO.read(new ByteArrayInputStream(testDomain.biImage.medium.data))
         println mediumImage
-        assertTrue mediumImage.width == ConfigurationHolder.config.bi.TestDbContainerDomainSecond.images.medium.scale.width
-        assertTrue mediumImage.height == ConfigurationHolder.config.bi.TestDbContainerDomainSecond.images.medium.scale.height
+        assertTrue mediumImage.width == Holders.config.bi.TestDbContainerDomainSecond.images.medium.scale.width
+        assertTrue mediumImage.height == Holders.config.bi.TestDbContainerDomainSecond.images.medium.scale.height
 
         BufferedImage largeImage = ImageIO.read(new ByteArrayInputStream(testDomain.biImage.large.data))
         println largeImage
-        assertTrue largeImage.width <= ConfigurationHolder.config.bi.TestDbContainerDomainSecond.images.large.scale.width
-        assertTrue largeImage.height <= ConfigurationHolder.config.bi.TestDbContainerDomainSecond.images.large.scale.height
+        assertTrue largeImage.width <= Holders.config.bi.TestDbContainerDomainSecond.images.large.scale.width
+        assertTrue largeImage.height <= Holders.config.bi.TestDbContainerDomainSecond.images.large.scale.height
     }
 
     void testScaleDbImageDefaultFiled() {
         def testDomain, result
-        ConfigurationHolder.config.bi.TestDbContainerDomainFirst = null
+        Holders.config.bi.TestDbContainerDomainFirst = null
         // instance not saved and there is no image
         testDomain = new TestDbContainerDomainFirst()
         shouldFail(IllegalArgumentException){
@@ -264,7 +264,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
             imageUploadService.save(testDomain)
         }
         // should be ok now
-        ConfigurationHolder.config.bi.TestDbContainerDomainFirst = [
+        Holders.config.bi.TestDbContainerDomainFirst = [
             images: [
                 'small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
                 'medium':[scale:[width:300, height:300, type:ScaleType.ACCURATE]],
@@ -319,18 +319,18 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
 
         BufferedImage smallImage = ImageIO.read(new ByteArrayInputStream(testDomain.biImage.small.data))
         println smallImage
-        assertTrue smallImage.width == ConfigurationHolder.config.bi.TestDbContainerDomainFirst.images.small.scale.width
-        assertTrue smallImage.height == ConfigurationHolder.config.bi.TestDbContainerDomainFirst.images.small.scale.height
+        assertTrue smallImage.width == Holders.config.bi.TestDbContainerDomainFirst.images.small.scale.width
+        assertTrue smallImage.height == Holders.config.bi.TestDbContainerDomainFirst.images.small.scale.height
 
         BufferedImage mediumImage = ImageIO.read(new ByteArrayInputStream(testDomain.biImage.medium.data))
         println mediumImage
-        assertTrue mediumImage.width == ConfigurationHolder.config.bi.TestDbContainerDomainFirst.images.medium.scale.width
-        assertTrue mediumImage.height == ConfigurationHolder.config.bi.TestDbContainerDomainFirst.images.medium.scale.height
+        assertTrue mediumImage.width == Holders.config.bi.TestDbContainerDomainFirst.images.medium.scale.width
+        assertTrue mediumImage.height == Holders.config.bi.TestDbContainerDomainFirst.images.medium.scale.height
 
         BufferedImage largeImage = ImageIO.read(new ByteArrayInputStream(testDomain.biImage.large.data))
         println largeImage
-        assertTrue largeImage.width <= ConfigurationHolder.config.bi.TestDbContainerDomainFirst.images.large.scale.width
-        assertTrue largeImage.height <= ConfigurationHolder.config.bi.TestDbContainerDomainFirst.images.large.scale.height
+        assertTrue largeImage.width <= Holders.config.bi.TestDbContainerDomainFirst.images.large.scale.width
+        assertTrue largeImage.height <= Holders.config.bi.TestDbContainerDomainFirst.images.large.scale.height
     }
 
     void testScale() {
@@ -341,7 +341,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
         }
         assertNull testDomain.imageExtension
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: WEB_APP_RESULT_DIR,
             prefix: 'prefixName',
             images: ['small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
@@ -387,7 +387,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     }
 
     void testScaleAndWatermak() {
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: WEB_APP_RESULT_DIR,
             prefix: null,
             images: ['large':[watermark:[sign:'images/watermark.png', offset:[top:10, left:10]]]]
@@ -400,7 +400,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     }
 
     void testDelete() {
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: WEB_APP_RESULT_DIR,
             prefix: 'prefixName',
             images: ['small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
@@ -445,7 +445,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     }
 
     void testWatermak() {
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: WEB_APP_RESULT_DIR,
             prefix: 'scale-and-waremark',
             images: ['large':[scale:[width:800, height:600, type:ScaleType.APPROXIMATE],
@@ -459,7 +459,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
     }
 
     void testActionWraper() {
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: WEB_APP_RESULT_DIR,
             prefix: 'action-wraped',
             images: ['large':[scale:[width:800, height:600, type:ScaleType.APPROXIMATE],
@@ -525,7 +525,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
 
         println getAbsolutePath(WEB_APP_RESULT_DIR)
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             outputDir: ['path':getAbsolutePath(WEB_APP_RESULT_DIR), 'alias':'/upload/'],
             prefix: 'prefixName',
             images: ['small':[scale:[width:100, height:100, type:ScaleType.ACCURATE]],
@@ -579,7 +579,7 @@ class ImageUploadServiceTests extends GrailsUnitTestCase implements ApplicationC
         }
         assertNull testDomain.imageExtension
 
-        ConfigurationHolder.config.bi = [
+        Holders.config.bi = [
             renderingEngine: RenderingEngine.IMAGE_MAGICK,
             TestDomain: [
                 outputDir: WEB_APP_RESULT_DIR,

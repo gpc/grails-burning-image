@@ -1,7 +1,7 @@
 package pl.burningice.plugins.image.ast
 
 import pl.burningice.plugins.image.ast.intarface.FileImageContainer
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import grails.util.Holders
 import pl.burningice.plugins.image.ast.test.TestDomainSecond
 import pl.burningice.plugins.image.ast.test.TestDomain
 import pl.burningice.plugins.image.ast.intarface.ImageContainer
@@ -19,7 +19,7 @@ class FileImageContainerTransformationTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
         cleanUpTestDir()
-        ConfigurationHolder.config = new ConfigObject()
+        Holders.config = new ConfigObject()
     }
 
     protected void tearDown() {
@@ -116,7 +116,7 @@ class FileImageContainerTransformationTests extends GrailsUnitTestCase {
 
         assertEquals testDomain.errors.getFieldErrors('image'), []
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             constraints:null
         ]
 
@@ -125,7 +125,7 @@ class FileImageContainerTransformationTests extends GrailsUnitTestCase {
 
         assertEquals testDomain.errors.getFieldErrors('image'), []
         
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             constraints:[
                 nullable:true
             ]
@@ -141,7 +141,7 @@ class FileImageContainerTransformationTests extends GrailsUnitTestCase {
 
         assertEquals testDomain.errors.getFieldErrors('image'), []
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             constraints:[
                 nullable:false
             ]
@@ -157,7 +157,7 @@ class FileImageContainerTransformationTests extends GrailsUnitTestCase {
 
         assertEquals testDomain.errors.getFieldError('image').getCode(), 'nullable'
 
-        ConfigurationHolder.config.bi.TestDomain = [
+        Holders.config.bi.TestDomain = [
             constraints:[
                 nullable:false,
                 maxSize:50,
@@ -173,18 +173,18 @@ class FileImageContainerTransformationTests extends GrailsUnitTestCase {
         println testDomain.errors.getFieldErrors('image')
         assertEquals testDomain.errors.getFieldError('image').getCode(), 'maxSize.exceeded'
 
-        ConfigurationHolder.config.bi.TestDomain.constraints.maxSize = image.getSize()
+        Holders.config.bi.TestDomain.constraints.maxSize = image.getSize()
         testDomain.validate()
         
         println testDomain.errors.getFieldErrors('image')
         assertEquals testDomain.errors.getFieldError('image').getCode(), 'contentType.invalid'
 
-        ConfigurationHolder.config.bi.TestDomain.constraints.contentType <<  image.getContentType()
+        Holders.config.bi.TestDomain.constraints.contentType <<  image.getContentType()
         testDomain.validate()
 
         assertEquals testDomain.errors.getFieldErrors('image'), []
 
-        ConfigurationHolder.config.bi.TestDomain.constraints.contentType = null
+        Holders.config.bi.TestDomain.constraints.contentType = null
         testDomain.validate()
 
         assertEquals testDomain.errors.getFieldErrors('image'), []
