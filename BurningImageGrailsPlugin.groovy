@@ -1,6 +1,6 @@
 class BurningImageGrailsPlugin {
     // the plugin version
-    def version = "0.5.2"
+    def version = "0.5.3-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.3 > *"
     // the other plugins this plugin depends on
