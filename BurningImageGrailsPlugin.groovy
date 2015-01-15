@@ -20,6 +20,7 @@ class BurningImageGrailsPlugin {
 Image manipulation plugin that allows you to easily attach images to \
 any domain class via an annotation. You can also configure the plugin \
 to scale images and perform other operation."""
+    def scm = [url: 'https://github.com/gpc/grails-burning-image']
 
     // URL to the plugin's documentation
     def documentation = "http://code.google.com/p/burningimage/"
